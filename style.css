@@ -1,0 +1,10 @@
+
+
+.card-image {
+  height: 140px;
+}
+
+.player {
+  display: flex;
+  justify-content: space-around;
+}
