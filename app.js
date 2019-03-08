@@ -1,5 +1,5 @@
 let scores = [0,0];
-let cardNumber = 1;
+let cardNumber = [1,1];
 
 
 document.querySelector('.button-hit').addEventListener('click', function(){
@@ -9,6 +9,15 @@ document.querySelector('.button-hit').addEventListener('click', function(){
     document.querySelector('.dealer-score').textContent = scores[0];
     document.querySelector('.player-score').textContent = scores[1];
     cardNumber += 1
+})
+
+document.querySelector('.button-start').addEventListener('click', function(){
+  drawCard(0);
+  cardNumber[0] += 1;
+  drawCard(0);
+  cardNumber[0] += 1;
+  drawCard(1);
+  cardNumber[1] += 1;
 })
 
 function drawCard(player){
@@ -45,6 +54,6 @@ function drawCard(player){
     card = 10;
     scores[player] += card;
   }
-  cardDOM = document.getElementById('card-1-' + cardNumber);
+  cardDOM = document.getElementById('card-' + player + '-' + cardNumber[player]);
   cardDOM.src = './assets/' + randomNumber + '.png';
 }
