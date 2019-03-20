@@ -1,9 +1,11 @@
-let scores, cardNumber, playersCards, dealersCards;
+let cardNumber, playersCards, dealersCards, scores;
+
 
 document.querySelector('.button-hit').addEventListener('click', function(){
     drawCard(0);
     cardNumber[0] += 1
     document.querySelector('.player-score').textContent = scores[0];
+    results();
 })
 
 document.querySelector('.button-start').addEventListener('click', function(){
@@ -20,6 +22,7 @@ document.querySelector('.button-start').addEventListener('click', function(){
   cardNumber[1] += 1;
   document.querySelector('.player-score').textContent = scores[0];
   document.querySelector('.dealer-score').textContent = scores[1];
+  results();
   console.log("players cards = " + playersCards)
   console.log("dealers cards = " + dealersCards)
 })
@@ -56,4 +59,18 @@ function drawCard(player){
   scores[player] += card;
   cardDOM = document.getElementById('card-' + player + '-' + cardNumber[player]);
   cardDOM.src = './assets/' + randomNumber + '.png';
+}
+
+function results(){
+  if (scores[0] > 21) {
+    document.querySelector('.result').textContent = "YOU BUST!!";
+  } else if (scores[0] === 21) {
+    document.querySelector('.result').textContent = "21 YOU WIN!!";
+  } else {
+    document.querySelector('.result').textContent = "Do you want to hit or stay?";
+  }
+}
+
+function aces(){
+  playersCards.find(11)
 }
