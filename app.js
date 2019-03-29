@@ -1,6 +1,6 @@
 let cardNumber, playersCards, dealersCards, scores;
 
-
+//Hits one more card for the player
 document.querySelector('.button-hit').addEventListener('click', function(){
     drawCard(0);
     cardNumber[0] += 1
@@ -8,6 +8,8 @@ document.querySelector('.button-hit').addEventListener('click', function(){
     results();
 })
 
+//Starts the game back to zero
+//Draws two cards for the player and one card for the dealer
 document.querySelector('.button-start').addEventListener('click', function(){
   scores = [0,0];
   cardNumber = [1,1];
@@ -27,6 +29,8 @@ document.querySelector('.button-start').addEventListener('click', function(){
   console.log("dealers cards = " + dealersCards)
 })
 
+//Draws a random card and pushes it into the card array
+//Also changes the card image when drawn
 function drawCard(player){
   let randomNumber, card, cardDOM;
   randomNumber = Math.floor(Math.random() * 52) + 1
@@ -61,6 +65,7 @@ function drawCard(player){
   cardDOM.src = './assets/' + randomNumber + '.png';
 }
 
+//Determines if the player has busted yet or not
 function results(){
   if (scores[0] > 21) {
     document.querySelector('.result').textContent = "YOU BUST!!";
@@ -69,8 +74,15 @@ function results(){
   } else {
     document.querySelector('.result').textContent = "Do you want to hit or stay?";
   }
+  aces();
 }
 
 function aces(){
-  playersCards.find(11)
+  let index = playersCards.indexOf(11)
+  if (scores[0] > 21) {
+    if (index >= 0){
+    playersCards.splice(index, 1, 1)
+  }
+}
+  console.log(playersCards, scores)
 }
