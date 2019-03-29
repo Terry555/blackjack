@@ -25,8 +25,6 @@ document.querySelector('.button-start').addEventListener('click', function(){
   document.querySelector('.player-score').textContent = scores[0];
   document.querySelector('.dealer-score').textContent = scores[1];
   results();
-  console.log("players cards = " + playersCards)
-  console.log("dealers cards = " + dealersCards)
 })
 
 //Draws a random card and pushes it into the card array
@@ -63,6 +61,7 @@ function drawCard(player){
   scores[player] += card;
   cardDOM = document.getElementById('card-' + player + '-' + cardNumber[player]);
   cardDOM.src = './assets/' + randomNumber + '.png';
+  aceChange(0);
 }
 
 //Determines if the player has busted yet or not
@@ -74,15 +73,21 @@ function results(){
   } else {
     document.querySelector('.result').textContent = "Do you want to hit or stay?";
   }
-  aces();
 }
 
-function aces(){
-  let index = playersCards.indexOf(11)
+//Checks if there are aces and score is over 21. If so,
+//it changes ace score from 11 to 1
+function aceChange(player){
+  console.log("players cards = " + playersCards)
+  console.log("players score = " + scores[player])
+  let index = playersCards.indexOf(11);
   if (scores[0] > 21) {
-    if (index >= 0){
-    playersCards.splice(index, 1, 1)
+    if (index >= 0) {
+      if (player === 0){
+      playersCards.splice(index, 1, 1);
+      scores[player] -= 10;
+      console.log("score is over 21 AND there is an ace!")
+      }
+    }
   }
-}
-  console.log(playersCards, scores)
 }
