@@ -3,7 +3,7 @@ let cardNumber, playersCards, dealersCards, scores;
 //Hits one more card for the player
 document.querySelector('.button-hit').addEventListener('click', function(){
     drawCard(0);
-    cardNumber[0] += 1
+    cardNumber[0] += 1;
     document.querySelector('.player-score').textContent = scores[0];
     results();
 })
@@ -11,6 +11,7 @@ document.querySelector('.button-hit').addEventListener('click', function(){
 //Starts the game back to zero
 //Draws two cards for the player and one card for the dealer
 document.querySelector('.button-start').addEventListener('click', function(){
+  let cardDOM;
   scores = [0,0];
   cardNumber = [1,1];
   playersCards = [];
@@ -24,7 +25,21 @@ document.querySelector('.button-start').addEventListener('click', function(){
   cardNumber[1] += 1;
   document.querySelector('.player-score').textContent = scores[0];
   document.querySelector('.dealer-score').textContent = scores[1];
+  cardDOM = document.getElementById('card-1-2');
+  cardDOM.src = './assets/cardback.png';
   results();
+})
+
+//Dealers cards for the dealer until they reach 17 or bust
+document.querySelector('.button-stay').addEventListener('click', function(){
+  console.log("Stay button is clicked!")
+    while (scores[1] <= 17){
+      drawCard(1);
+      cardNumber[1] += 1;
+      document.querySelector('.dealer-score').textContent = scores[1];
+      aceChange(1);
+    }
+    beatTheDealer();
 })
 
 //Draws a random card and pushes it into the card array
@@ -75,18 +90,28 @@ function results(){
   }
 }
 
+//After staying, determines if the dealer or player wins
+function beatTheDealer(){
+  console.log("player score = " + scores[0])
+  console.log("dealer score = " + scores[1])
+  if (scores[0] > scores[1] || scores[1] > 21) {
+    document.querySelector('.result').textContent = "YOU BEAT THE DEALER!!";
+  } else if (scores[0] < 22 && scores[0] === scores[1]) {
+    document.querySelector('.result').textContent = "PUSH";
+  } else {
+    document.querySelector('.result').textContent = "YOU LOST TO THE DEALER!!";
+  }
+}
+
 //Checks if there are aces and score is over 21. If so,
 //it changes ace score from 11 to 1
 function aceChange(player){
-  console.log("players cards = " + playersCards)
-  console.log("players score = " + scores[player])
   let index = playersCards.indexOf(11);
-  if (scores[0] > 21) {
+  if (scores[player] > 21) {
     if (index >= 0) {
       if (player === 0){
       playersCards.splice(index, 1, 1);
       scores[player] -= 10;
-      console.log("score is over 21 AND there is an ace!")
       }
     }
   }
