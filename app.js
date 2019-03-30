@@ -102,8 +102,6 @@ function results(){
 
 //After staying, determines if the dealer or player wins
 function beatTheDealer(){
-  console.log("player score = " + scores[0])
-  console.log("dealer score = " + scores[1])
   if (scores[0] > scores[1] || scores[1] > 21) {
     document.querySelector('.result').textContent = "YOU BEAT THE DEALER!!";
   } else if (scores[0] < 22 && scores[0] === scores[1]) {
