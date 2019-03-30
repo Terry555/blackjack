@@ -4,7 +4,7 @@ let cardNumber, playersCards, dealersCards, scores;
 document.querySelector('.button-hit').addEventListener('click', function(){
     drawCard(0);
     cardNumber[0] += 1;
-    document.querySelector('.player-score').textContent = scores[0];
+    document.querySelector('.player-score').textContent = "Player Score: " + scores[0];
     results();
 })
 
@@ -17,14 +17,24 @@ document.querySelector('.button-start').addEventListener('click', function(){
   playersCards = [];
   dealersCards = [];
 
+  for (let i=1; i<6; i++){
+    cardDOM = document.getElementById('card-0-' + i);
+    cardDOM.src = '';
+  }
+
+  for (let i=1; i<6; i++){
+    cardDOM = document.getElementById('card-1-' + i);
+    cardDOM.src = '';
+  }
+
   drawCard(0);
   cardNumber[0] += 1;
   drawCard(0);
   cardNumber[0] += 1;
   drawCard(1);
   cardNumber[1] += 1;
-  document.querySelector('.player-score').textContent = scores[0];
-  document.querySelector('.dealer-score').textContent = scores[1];
+  document.querySelector('.player-score').textContent = "Player Score: " + scores[0];
+  document.querySelector('.dealer-score').textContent = "Dealer Score: " + scores[1];
   cardDOM = document.getElementById('card-1-2');
   cardDOM.src = './assets/cardback.png';
   results();
@@ -36,7 +46,7 @@ document.querySelector('.button-stay').addEventListener('click', function(){
     while (scores[1] <= 17){
       drawCard(1);
       cardNumber[1] += 1;
-      document.querySelector('.dealer-score').textContent = scores[1];
+      document.querySelector('.dealer-score').textContent = "Dealer Score: " + scores[1];
       aceChange(1);
     }
     beatTheDealer();
@@ -106,13 +116,23 @@ function beatTheDealer(){
 //Checks if there are aces and score is over 21. If so,
 //it changes ace score from 11 to 1
 function aceChange(player){
-  let index = playersCards.indexOf(11);
+  let index;
+
+  if (player === 0) {
+    index = playersCards.indexOf(11);
+  } else {
+    index = dealersCards.indexOf(11);
+  }
+
   if (scores[player] > 21) {
     if (index >= 0) {
       if (player === 0){
       playersCards.splice(index, 1, 1);
       scores[player] -= 10;
-      }
+    } else {
+      dealersCards.splice(index, 1, 1);
+      scores[player] -= 10;
+    }
     }
   }
 }
