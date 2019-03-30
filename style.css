@@ -1,4 +1,16 @@
+body {
+  background-color: #157c13;
+}
 
+.card-container {
+  text-align: center;
+  padding: 10px;
+  margin: 15px 300px 15px 300px;
+  border: black;
+  border-style: solid;
+  border-width: thick;
+  background-color: #119b20;
+}
 
 .card-image {
   height: 160px;
@@ -12,4 +24,75 @@
 .dealer {
   display: flex;
   justify-content: space-around;
+}
+
+.player-score {
+  text-align: center;
+  font-size: 40px;
+}
+
+.dealer-score {
+  text-align: center;
+  font-size: 40px;
+}
+
+.result {
+  text-align: center;
+  font-size: 40px;
+}
+
+.buttons {
+  text-align: center;
+  margin: 45px;
+}
+
+.button-start {
+  background-color: red;
+  font-size: 20px;
+  padding: 20px;
+  margin: 6px;
+  border-radius: 8px;
+  border: 2px solid black;
+  cursor: pointer;
+  width: 150px;
+}
+
+.button-start:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button-hit {
+  background-color: red;
+  font-size: 20px;
+  padding: 20px;
+  margin: 6px;
+  border-radius: 8px;
+  border: 2px solid black;
+  cursor: pointer;
+  width: 150px;
+}
+
+.button-hit:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button-stay {
+  background-color: red;
+  font-size: 20px;
+  padding: 20px;
+  margin: 6px;
+  border-radius: 8px;
+  border: 2px solid black;
+  cursor: pointer;
+  width: 150px;
+}
+
+.button-stay:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
