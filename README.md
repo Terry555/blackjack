@@ -4,11 +4,7 @@ Blackjack
 
 ## Motivation:
 
-My motivation for Muzak was to create a service that I would like to use myself: providing personalized music recommendations to users based on their preferences. I've always enjoyed the various ways that streaming services such as Pandora and Spotify provide recommendations, so I modeled this app off of Last.fm's algorithm.
-
-### Demo:
-
-[Video Demo](https://www.youtube.com/watch?v=pfCrdJk5NCU&feature=youtu.be)
+My motivation for creating blackjack was just to design a lightweight javascript game for myself to play. The fun of creating the app was figuring out how to implement all the rules of blackjack for both the player and the dealer. 
 
 ### Screenshots:
 
