@@ -12,10 +12,9 @@ My motivation for Muzak was to create a service that I would like to use myself:
 
 ### Screenshots:
 
-<img alt="screenshot 1" src="https://user-images.githubusercontent.com/39580513/53047840-54c24280-3461-11e9-8b30-f5d4bb03ebc6.png">
-<img alt="screenshot 2" src="https://user-images.githubusercontent.com/39580513/53048913-ddda7900-3463-11e9-89cf-84c4ab161cd2.png">
-<img alt="screenshot 3" src="https://user-images.githubusercontent.com/39580513/53048944-f6e32a00-3463-11e9-8f6d-18c49c59d93e.png">
-<img alt="screenshot 4" src="https://user-images.githubusercontent.com/39580513/53048979-06627300-3464-11e9-9f0f-b2bf09d3264c.png">
+<img alt="screenshot 1" src="https://user-images.githubusercontent.com/39580513/56784985-42e28000-67c1-11e9-8277-88259e7fff6a.png">
+<img alt="screenshot 2" src="https://user-images.githubusercontent.com/39580513/56785032-61487b80-67c1-11e9-87cd-f49c2090cbf2.png">
+<img alt="screenshot 3" src="https://user-images.githubusercontent.com/39580513/56785057-76250f00-67c1-11e9-9788-e83aa54c1a2c.png">
 
 ## Technology Used:
 
@@ -27,7 +26,7 @@ Javascript, HTML
 
 ### Features:
 
-User can 
+User can play blackjack against the dealer using traditional blackjack rules. After hitting or staying, the dealer's cards are revealed, as well as the win/loss result
 
 ## Installation:
 
