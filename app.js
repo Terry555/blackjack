@@ -17,6 +17,9 @@ document.querySelector('.button-start').addEventListener('click', function(){
   playersCards = [];
   dealersCards = [];
 
+  document.querySelector('.button-stay').style.display = "";
+  document.querySelector('.button-hit').style.display = "";
+
   for (let i=1; i<6; i++){
     cardDOM = document.getElementById('card-0-' + i);
     cardDOM.src = '';
@@ -93,8 +96,12 @@ function drawCard(player){
 function results(){
   if (scores[0] > 21) {
     document.querySelector('.result').textContent = "YOU BUST!!";
+    document.querySelector('.button-stay').style.display = "none";
+    document.querySelector('.button-hit').style.display = "none";
   } else if (scores[0] === 21) {
     document.querySelector('.result').textContent = "21 YOU WIN!!";
+    document.querySelector('.button-stay').style.display = "none";
+    document.querySelector('.button-hit').style.display = "none";
   } else {
     document.querySelector('.result').textContent = "Do you want to hit or stay?";
   }
@@ -104,10 +111,16 @@ function results(){
 function beatTheDealer(){
   if (scores[0] > scores[1] || scores[1] > 21) {
     document.querySelector('.result').textContent = "YOU BEAT THE DEALER!!";
+    document.querySelector('.button-stay').style.display = "none";
+    document.querySelector('.button-hit').style.display = "none";
   } else if (scores[0] < 22 && scores[0] === scores[1]) {
     document.querySelector('.result').textContent = "PUSH";
+    document.querySelector('.button-stay').style.display = "none";
+    document.querySelector('.button-hit').style.display = "none";
   } else {
     document.querySelector('.result').textContent = "YOU LOST TO THE DEALER!!";
+    document.querySelector('.button-stay').style.display = "none";
+    document.querySelector('.button-hit').style.display = "none";
   }
 }
 
