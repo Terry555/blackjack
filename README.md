@@ -24,10 +24,6 @@ Javascript, HTML
 
 User can play blackjack against the dealer using traditional blackjack rules. After hitting or staying, the dealer's cards are revealed, as well as the win/loss result
 
-## Installation:
-
-To get a development server running clone the project, npm i and npm start
-
 ## License:
 
 MIT
